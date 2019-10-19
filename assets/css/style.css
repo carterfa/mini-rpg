@@ -4,3 +4,11 @@ header, div {
     text-align: center;
 
 }
+
+#playerZone {
+    background-color: green;
+}
+
+#enemyZone {
+    background-color: red;
+}
