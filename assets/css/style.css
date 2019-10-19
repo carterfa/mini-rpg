@@ -13,7 +13,7 @@ header, div {
     background-color: red;
 }
 
-.character {
+h2, .character {
     display: inline;
 }
 

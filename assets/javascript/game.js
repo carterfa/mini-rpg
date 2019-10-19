@@ -38,9 +38,9 @@ const game = {
             player.attack = 5;
 
         }
-        playerhpText = $("<p>").text("HP: "+player.hp);
-        
-        $("#playerZone").append(playerhpText);
+        playerDisplay = $("<p>").text("HP: "+player.hp);
+        playerDisplay.attr("id","playerDisplay");
+        $("#playerZone").append(playerDisplay);
     },
 
     loadTarget: function () {
@@ -62,8 +62,9 @@ const game = {
             target.attack = 5;
 
         }
-        targethpText = $("<p>").text("HP: "+target.hp);
-        $("#enemyZone").append(targethpText);
+        targetDisplay = $("<p>").text("HP: "+target.hp);
+        targetDisplay.attr("id","targetDisplay");
+        $("#enemyZone").append(targetDisplay);
     },
 
     attack: function () {
@@ -72,7 +73,8 @@ const game = {
         player.attack = player.attack + player.attack;
         console.log("Player HP " + player.hp);
         console.log("Target HP " + target.hp);
-
+        targetDisplay.text("HP: "+target.hp);
+        playerDisplay.text("HP: "+player.hp);
     },
 
     check: function () {
