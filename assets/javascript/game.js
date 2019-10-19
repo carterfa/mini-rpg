@@ -40,6 +40,7 @@ const game = {
     },
 
     loadTarget: function () {
+
         if (targetChoice === "fighter") {
 
             target.hp = 200;
@@ -79,7 +80,7 @@ const game = {
             targetSelected = false;
             enemyCount--;
             console.log(enemyCount);
-            if (enemyCount == 0){
+            if (enemyCount == 0) {
                 console.log("ALL ENEMIES DEFEATED!");
             }
         }
@@ -91,7 +92,7 @@ const game = {
 $(document).ready(function () {
     $("#attackBtn").on("click", function () {
         if ((characterSelected == true) && (targetSelected == true)) {
-            
+
             game.attack();
             game.check();
         }
@@ -105,10 +106,12 @@ $(document).ready(function () {
             $(this).appendTo("#playerZone");
             game.loadPlayer();
         } else if (targetSelected == false) {
-            targetSelected = true;
             targetChoice = $(this).attr("id");
-            $(this).appendTo("#enemyZone");
-            game.loadTarget();
+            if (targetChoice !== playerChoice) {
+                targetSelected = true;
+                $(this).appendTo("#enemyZone");
+                game.loadTarget();
+            }
         }
 
     })
