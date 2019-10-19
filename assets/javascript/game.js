@@ -1,5 +1,6 @@
 let characterSelected = false;
 let targetSelected = false;
+let gameOver = false;
 let playerChoice = "";
 let targetChoice = "";
 let enemyCount = 3;
@@ -37,12 +38,14 @@ const game = {
             player.attack = 5;
 
         }
+        playerhpText = $("<p>").text("HP: "+player.hp);
+        
+        $("#playerZone").append(playerhpText);
     },
 
     loadTarget: function () {
 
         if (targetChoice === "fighter") {
-
             target.hp = 200;
             target.attack = 20;
 
@@ -50,38 +53,43 @@ const game = {
             target.hp = 175;
             target.attack = 25;
 
-        } else if (target.Choice === "mage") {
+        } else if (targetChoice === "mage") {
             target.hp = 100;
             target.attack = 5;
 
-        } else if (target.Choice === "ranger") {
+        } else if (targetChoice === "ranger") {
             target.hp = 75;
             target.attack = 5;
 
         }
+        targethpText = $("<p>").text("HP: "+target.hp);
+        $("#enemyZone").append(targethpText);
     },
 
     attack: function () {
         target.hp = target.hp - player.attack;
         player.hp = player.hp - target.counter;
+        player.attack = player.attack + player.attack;
         console.log("Player HP " + player.hp);
-        console.log("Target HP " + target.hp)
+        console.log("Target HP " + target.hp);
 
     },
 
     check: function () {
 
         if (player.hp <= 0) {
-            console.log("GAME OVER");
+            gameOver = true;
+            $("#topMessage").text("GAME OVER");
+            $("#attackBtn").hide();
+            $("#playerZone").empty();
         } else if (target.hp <= 0) {
             console.log("DEFEATED ENEMY");
-            let imageID = "#" + targetChoice;
-            $(imageID).remove();
+            $("#enemyZone").empty();
             targetSelected = false;
             enemyCount--;
-            console.log(enemyCount);
             if (enemyCount == 0) {
-                console.log("ALL ENEMIES DEFEATED!");
+                $("#topMessage").text("ALL ENEMIES DEFEATED! YOU ARE THE CHAMPION!");
+                $("#attackBtn").hide();
             }
         }
 
@@ -91,12 +99,13 @@ const game = {
 
 $(document).ready(function () {
     $("#attackBtn").on("click", function () {
-        if ((characterSelected == true) && (targetSelected == true)) {
+        if (gameOver == false) {
+            if ((characterSelected == true) && (targetSelected == true)) {
 
-            game.attack();
-            game.check();
+                game.attack();
+                game.check();
+            }
         }
-
     })
 
     $(".character").on("click", function () {
@@ -105,12 +114,16 @@ $(document).ready(function () {
             characterSelected = true;
             $(this).appendTo("#playerZone");
             game.loadPlayer();
+            $("#topMessage").text("Character selected! Choose an enemy!");
         } else if (targetSelected == false) {
             targetChoice = $(this).attr("id");
+            console.log(targetChoice);
             if (targetChoice !== playerChoice) {
                 targetSelected = true;
                 $(this).appendTo("#enemyZone");
                 game.loadTarget();
+                $("#topMessage").text("Click the attack button to fight!");
+                $("#attackBtn").show();
             }
         }
 

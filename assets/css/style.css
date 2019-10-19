@@ -12,3 +12,16 @@ header, div {
 #enemyZone {
     background-color: red;
 }
+
+.character {
+    display: inline;
+}
+
+#attackBtn{
+    display: none;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}

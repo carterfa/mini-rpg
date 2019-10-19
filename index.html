@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <title>RPG</title>
 </head>
+
 <body>
-    <header><h1>Select a character to begin.</h1></header>
-    <div id="selectZone"><img src="assets/images/crab.jpg" class="character" id="fighter"/> 
-        <img src="assets/images/lobster.jpg" class="character" id="knight"/>
-        <img src="assets/images/isopod.jpg" class="character" id="mage"/>
-        <img src="assets/images/shrimp.jpg" class="character" id="ranger"/></div>
-    
+    <header>
+        <h1 id="topMessage">Select a character to begin.</h1>
+    </header>
+    <div id="selectZone">
+        <div class="character" id="fighter"><img src="assets/images/crab.jpg" /> </div>
+        <div class="character" id="knight"><img src="assets/images/lobster.jpg" /></div>
+        <div class="character" id="mage"><img src="assets/images/isopod.jpg" /></div>
+        <div class="character" id="ranger"><img src="assets/images/shrimp.jpg" /></div>
+    </div>
+
     <div id="enemyZone"></div>
-    <div id="playerZone"><button id="attackBtn">ATTACK</button></div>
+    <div id="playerZone">
+        <div><button id="attackBtn">ATTACK</button></div>
+    </div>
     <div id="defenderZone"></div>
 
-<script src="assets/javascript/game.js"></script>
+    <script src="assets/javascript/game.js"></script>
 </body>
+
 </html>
