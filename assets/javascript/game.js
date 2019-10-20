@@ -7,6 +7,8 @@ let enemyCount = 3;
 
 let playerDisplay = "";
 let targetDisplay = "";
+let attackDisplay = "";
+let counterDisplay = "";
 
 let player = {
     hp: 100,
@@ -42,7 +44,9 @@ const game = {
 
         }
         playerDisplay = $("<p>").text("HP: "+player.hp);
-        playerDisplay.attr("id","playerDisplay");
+        attackDisplay =$("<p>").text("Attack: "+player.attack);
+        //playerDisplay.attr("id","playerDisplay");
+        $("#playerZone").append(attackDisplay);
         $("#playerZone").append(playerDisplay);
         $("#playerZone").prepend($("<p>").text("Your Character:"));
     },
@@ -51,24 +55,26 @@ const game = {
 
         if (targetChoice === "fighter") {
             target.hp = 200;
-            target.counter = 20;
+            target.counter = 10;
 
         } else if (targetChoice === "knight") {
             target.hp = 175;
-            target.counter = 25;
+            target.counter = 5;
 
         } else if (targetChoice === "mage") {
             target.hp = 175;
-            target.counter = 5;
+            target.counter = 15;
 
         } else if (targetChoice === "ranger") {
             target.hp = 150;
-            target.counter = 10;
+            target.counter = 25;
 
         }
         targetDisplay = $("<p>").text("HP: "+target.hp);
-        targetDisplay.attr("id","targetDisplay");
+        counterDisplay =$("<p>").text("Counter Attack: "+target.counter);
+        //targetDisplay.attr("id","targetDisplay");
         $("#enemyZone").append(targetDisplay);
+        $("#enemyZone").append(counterDisplay);
         $("#enemyZone").prepend($("<p>").text("Your Opponent:"));
     },
 
@@ -80,6 +86,7 @@ const game = {
         console.log("Target HP " + target.hp);
         targetDisplay.text("HP: "+target.hp);
         playerDisplay.text("HP: "+player.hp);
+        attackDisplay.text("Attack: "+player.attack);
     },
 
     check: function () {
@@ -95,7 +102,7 @@ const game = {
             targetSelected = false;
             enemyCount--;
             if (enemyCount == 0) {
-                $("#topMessage").text("ALL ENEMIES DEFEATED! YOU ARE THE CHAMPION!");
+                $("#topMessage").text("All enemies defeated! You are the champion!");
                 $("#attackBtn").hide();
             }
         }

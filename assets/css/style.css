@@ -5,6 +5,7 @@ header, footer, div {
     padding: .5em;
 
 }
+
 #playerZone {
     background-color: green;
 }
@@ -15,7 +16,6 @@ header, footer, div {
 
 #attackBtn{
     display: none;
-    clear: both;
 }
 
 .col-3{
