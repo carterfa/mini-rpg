@@ -100,11 +100,27 @@ const game = {
             }
         }
 
+    },
+
+    reset: function (){
+        characterSelected = false;
+        targetSelected = false;
+        gameOver = false;
+        playerChoice = "";
+        targetChoice = "";
+        enemyCount = 3;
+        
+        playerDisplay = "";
+        targetDisplay = "";
+
+        window.location.reload(true);
+
     }
 
 }
 
 $(document).ready(function () {
+
     $("#attackBtn").on("click", function () {
         if (gameOver == false) {
             if ((characterSelected == true) && (targetSelected == true)) {
@@ -113,6 +129,10 @@ $(document).ready(function () {
                 game.check();
             }
         }
+    })
+
+    $("#resetBtn").on("click", function () {
+        game.reset();
     })
 
     $(".character").on("click", function () {

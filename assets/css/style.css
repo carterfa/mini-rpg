@@ -1,4 +1,4 @@
-header, div {
+header, footer, div {
     margin-left:auto;
     margin-right:auto;
     text-align: center;
@@ -16,6 +16,10 @@ header, div {
 #attackBtn{
     display: none;
     clear: both;
+}
+
+.col-3{
+    display: inline;
 }
 
 p {
