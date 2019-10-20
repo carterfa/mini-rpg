@@ -148,6 +148,7 @@ $(document).ready(function () {
             characterSelected = true;
             $(this).appendTo("#playerZone");
             game.loadPlayer();
+            $("#playerZone").css("background-color", "cadetblue");
             $("#topMessage").text("Character selected! Choose an enemy!");
         } else if (targetSelected == false) {
             targetChoice = $(this).attr("id");
@@ -156,6 +157,7 @@ $(document).ready(function () {
                 targetSelected = true;
                 $(this).appendTo("#enemyZone");
                 game.loadTarget();
+                $("#enemyZone").css("background-color", "orange");
                 $("#topMessage").text("Click the attack button to fight!");
                 $("#attackBtn").show();
             }

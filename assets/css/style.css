@@ -6,12 +6,9 @@ header, footer, div {
 
 }
 
-#playerZone {
-    background-color: green;
-}
-
-#enemyZone {
-    background-color: red;
+.row {
+    margin-right: 0;
+    margin-left: 0;
 }
 
 #attackBtn{
@@ -24,6 +21,16 @@ header, footer, div {
 
 p {
     margin-bottom: 0rem;
+}
+
+li {
+    list-style-type: none;
+    display: none;
+}
+
+#selectZone .character:hover li{
+    display: block;
+
 }
 
 img {
