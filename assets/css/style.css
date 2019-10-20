@@ -6,17 +6,11 @@ header, div {
 
 }
 #playerZone {
-    
     background-color: green;
 }
 
 #enemyZone {
     background-color: red;
-}
-
-.character {
-    display: inline-table;
-    margin: .75em .75em 0em .75em;
 }
 
 #attackBtn{
