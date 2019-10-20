@@ -21,17 +21,26 @@
         <h1 id="topMessage">Select a character to begin.</h1>
     </header>
     <div id="selectZone">
-        <div class="character" id="fighter"><img src="assets/images/crab.jpg" /> </div>
-        <div class="character" id="knight"><img src="assets/images/lobster.jpg" /></div>
-        <div class="character" id="mage"><img src="assets/images/isopod.jpg" /></div>
-        <div class="character" id="ranger"><img src="assets/images/shrimp.jpg" /></div>
+        <div class="clearfix character" id="fighter">
+            <h3>FIGHTER</h3><img src="assets/images/crab.jpg" />
+        </div>
+        <div class="clearfix character" id="knight">
+            <h3>KNIGHT</h3><img src="assets/images/lobster.jpg" />
+        </div>
+        <div class="clearfix character" id="mage">
+            <h3>MAGE</h3><img src="assets/images/isopod.jpg" />
+        </div>
+        <div class="clearfix character" id="ranger">
+            <h3>RANGER</h3><img src="assets/images/shrimp.jpg" />
+        </div>
     </div>
 
-    <div id="enemyZone"></div>
-    <div id="playerZone">
-        <div><button id="attackBtn">ATTACK</button></div>
+    <div id="gameZone">
+        <div id="enemyZone"></div>
+        <div><button id="attackBtn"><h3>ATTACK</h3></button></div>
+        <div id="playerZone"></div>
+        
     </div>
-    <div id="defenderZone"></div>
 
     <script src="assets/javascript/game.js"></script>
 </body>

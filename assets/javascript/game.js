@@ -5,6 +5,9 @@ let playerChoice = "";
 let targetChoice = "";
 let enemyCount = 3;
 
+let playerDisplay = "";
+let targetDisplay = "";
+
 let player = {
     hp: 100,
     attack: 10,
@@ -35,7 +38,7 @@ const game = {
 
         } else if (playerChoice === "ranger") {
             player.hp = 75;
-            player.attack = 5;
+            player.attack = 15;
 
         }
         playerDisplay = $("<p>").text("HP: "+player.hp);
@@ -47,19 +50,19 @@ const game = {
 
         if (targetChoice === "fighter") {
             target.hp = 200;
-            target.attack = 20;
+            target.counter = 20;
 
         } else if (targetChoice === "knight") {
             target.hp = 175;
-            target.attack = 25;
+            target.counter = 25;
 
         } else if (targetChoice === "mage") {
-            target.hp = 100;
-            target.attack = 5;
+            target.hp = 175;
+            target.counter = 5;
 
         } else if (targetChoice === "ranger") {
-            target.hp = 75;
-            target.attack = 5;
+            target.hp = 150;
+            target.counter = 10;
 
         }
         targetDisplay = $("<p>").text("HP: "+target.hp);

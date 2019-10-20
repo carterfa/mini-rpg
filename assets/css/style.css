@@ -2,10 +2,11 @@ header, div {
     margin-left:auto;
     margin-right:auto;
     text-align: center;
+    padding: .5em;
 
 }
-
 #playerZone {
+    
     background-color: green;
 }
 
@@ -13,15 +14,22 @@ header, div {
     background-color: red;
 }
 
-h2, .character {
-    display: inline;
+.character {
+    display: inline-table;
+    margin: .75em .75em 0em .75em;
 }
 
 #attackBtn{
     display: none;
+    clear: both;
+}
+
+p {
+    margin-bottom: 0rem;
 }
 
 img {
     height: 100px;
     width: 100px;
+    display: inline-block;
 }
