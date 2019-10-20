@@ -44,6 +44,7 @@ const game = {
         playerDisplay = $("<p>").text("HP: "+player.hp);
         playerDisplay.attr("id","playerDisplay");
         $("#playerZone").append(playerDisplay);
+        $("#playerZone").prepend($("<p>").text("Your Character:"));
     },
 
     loadTarget: function () {
@@ -68,6 +69,7 @@ const game = {
         targetDisplay = $("<p>").text("HP: "+target.hp);
         targetDisplay.attr("id","targetDisplay");
         $("#enemyZone").append(targetDisplay);
+        $("#enemyZone").prepend($("<p>").text("Your Opponent:"));
     },
 
     attack: function () {
