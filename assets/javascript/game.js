@@ -43,8 +43,8 @@ const game = {
             player.attack = 15;
 
         }
-        playerDisplay = $("<p>").text("HP: "+player.hp);
-        attackDisplay =$("<p>").text("Attack: "+player.attack);
+        playerDisplay = $("<p>").text("HP: " + player.hp);
+        attackDisplay = $("<p>").text("Attack: " + player.attack);
         //playerDisplay.attr("id","playerDisplay");
         $("#playerZone").append(attackDisplay);
         $("#playerZone").append(playerDisplay);
@@ -70,8 +70,8 @@ const game = {
             target.counter = 25;
 
         }
-        targetDisplay = $("<p>").text("HP: "+target.hp);
-        counterDisplay =$("<p>").text("Counter Attack: "+target.counter);
+        targetDisplay = $("<p>").text("HP: " + target.hp);
+        counterDisplay = $("<p>").text("Counter Attack: " + target.counter);
         //targetDisplay.attr("id","targetDisplay");
         $("#enemyZone").append(targetDisplay);
         $("#enemyZone").append(counterDisplay);
@@ -84,9 +84,9 @@ const game = {
         player.attack = player.attack + player.attack;
         console.log("Player HP " + player.hp);
         console.log("Target HP " + target.hp);
-        targetDisplay.text("HP: "+target.hp);
-        playerDisplay.text("HP: "+player.hp);
-        attackDisplay.text("Attack: "+player.attack);
+        targetDisplay.text("HP: " + target.hp);
+        playerDisplay.text("HP: " + player.hp);
+        attackDisplay.text("Attack: " + player.attack);
     },
 
     check: function () {
@@ -109,18 +109,49 @@ const game = {
 
     },
 
-    reset: function (){
+    reset: function () {
         characterSelected = false;
         targetSelected = false;
         gameOver = false;
         playerChoice = "";
         targetChoice = "";
         enemyCount = 3;
-        
+
         playerDisplay = "";
         targetDisplay = "";
+        attackDisplay = "";
+        counterDisplay = "";
 
-        window.location.reload(true);
+        player = {
+            hp: 100,
+            attack: 10,
+            counter: 5,
+        };
+
+        target = {
+            hp: 100,
+            attack: 10,
+            counter: 5,
+        };
+
+        $("#playerZone").empty();
+        $("#enemyZone").empty();
+
+        $("#playerZone").css("background-color", "transparent");
+        $("#enemyZone").css("background-color", "transparent");
+
+        $("#attackBtn").hide();
+        $("#selectZone").show();
+
+        $("#topMessage").text("Select a character to begin.");
+
+        $("#fighter").show();
+        $("#mage").show();
+        $("#knight").show();
+        $("#ranger").show();
+
+
+        //window.location.reload(true);
 
     }
 
@@ -146,7 +177,8 @@ $(document).ready(function () {
         if (characterSelected == false) {
             playerChoice = $(this).attr("id");
             characterSelected = true;
-            $(this).appendTo("#playerZone");
+            $(this).clone().appendTo("#playerZone");
+            $(this).hide();
             game.loadPlayer();
             $("#playerZone").css("background-color", "cadetblue");
             $("#topMessage").text("Character selected! Choose an enemy!");
@@ -155,7 +187,8 @@ $(document).ready(function () {
             console.log(targetChoice);
             if (targetChoice !== playerChoice) {
                 targetSelected = true;
-                $(this).appendTo("#enemyZone");
+                $(this).clone().appendTo("#enemyZone");
+                $(this).hide();
                 game.loadTarget();
                 $("#enemyZone").css("background-color", "orange");
                 $("#topMessage").text("Click the attack button to fight!");
