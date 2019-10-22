@@ -25,16 +25,27 @@ p {
 
 li {
     list-style-type: none;
+}
+
+#playerZone, #enemyZone {
     display: none;
 }
 
-#selectZone .character:hover li{
-    display: block;
-
-}
 
 img {
     height: 100px;
     width: 100px;
     display: inline-block;
+}
+
+#resetBtn{
+display:none;
+}
+
+#enemyZone{
+    background-color: goldenrod;
+}
+
+#playerZone{
+    background-color: darkturquoise;
 }
