@@ -38,6 +38,11 @@ img {
     display: inline-block;
 }
 
+.character:hover{
+    border:solid 10px midnightblue;
+}
+
+
 #resetBtn{
 display:none;
 }

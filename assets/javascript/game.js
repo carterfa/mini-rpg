@@ -1,9 +1,12 @@
 let characterSelected = false;
 let targetSelected = false;
 let gameOver = false;
+
 let playerChoice = "";
 let targetChoice = "";
+
 let enemyCount = 3;
+let attackMult = 1;
 
 let player = {
     hp: 100,
@@ -27,6 +30,7 @@ const game = {
         playerChoice = "";
         targetChoice = "";
         enemyCount = 3;
+        attackMult = 0;
 
         player = {
             hp: 100,
@@ -74,7 +78,7 @@ const game = {
             player.attack = 25;
 
         } else if (playerChoice === "mage") {
-            player.hp = 100;
+            player.hp = 250;
             player.attack = 5;
 
         } else if (playerChoice === "ranger") {
@@ -98,7 +102,7 @@ const game = {
             target.counter = 25;
 
         } else if (targetChoice === "mage") {
-            target.hp = 175;
+            target.hp = 250;
             target.counter = 15;
 
         } else if (targetChoice === "ranger") {
@@ -112,16 +116,17 @@ const game = {
 
     //attack calculations
     attack: function () {
-        target.hp = target.hp - player.attack;
+        target.hp = target.hp - (attackMult*player.attack);
         player.hp = player.hp - target.counter;
-        player.attack = player.attack + player.attack;
+        
+        attackMult++;
 
         console.log("Player HP " + player.hp);
         console.log("Target HP " + target.hp);
         
         $("#enemyZone .hpDisplay").text("HP: " + target.hp);
         $("#playerZone .hpDisplay").text("HP: " + player.hp);
-        $("#playerZone .attackDisplay").text("Attack: " + player.attack);
+        $("#playerZone .attackDisplay").text("Attack: " + (attackMult*player.attack));
     },
 
     //runs game over or win state
@@ -148,7 +153,7 @@ const game = {
                 
                 $("#topMessage").text("All enemies defeated! You are the champion!");
                 $("#attackBtn").hide();
-                
+
             }
         }
 
@@ -161,7 +166,7 @@ $(document).ready(function () {
     $("#attackBtn").on("click", function () {
         if (gameOver == false) {
             if ((characterSelected == true) && (targetSelected == true)) {
-
+                
                 game.attack();
                 game.check();
             }
