@@ -87,7 +87,7 @@ const game = {
 
         }
         
-        $("#playerZone").prepend($("<p>").text("Your Character:"));
+        $("#playerZone").prepend($("<p>").text("CHARACTER:"));
     },
 
     //sets stats for enemy selection
@@ -111,7 +111,7 @@ const game = {
 
         }
         
-        $("#enemyZone").prepend($("<p>").text("Your Opponent:"));
+        $("#enemyZone").prepend($("<p>").text("OPPONENT:"));
     },
 
     //attack calculations
@@ -163,6 +163,7 @@ const game = {
 
 $(document).ready(function () {
 
+    //attack button
     $("#attackBtn").on("click", function () {
         if (gameOver == false) {
             if ((characterSelected == true) && (targetSelected == true)) {
@@ -173,10 +174,12 @@ $(document).ready(function () {
         }
     })
 
+    //reset button
     $("#resetBtn").on("click", function () {
         game.reset();
     })
 
+    //character selection
     $(".character").on("click", function () {
         if (characterSelected == false) {
             

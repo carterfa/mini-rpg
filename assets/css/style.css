@@ -6,6 +6,11 @@ header, footer, div {
 
 }
 
+body{
+    background-color: seashell;
+    color: black;
+}
+
 .row {
     margin-right: 0;
     margin-left: 0;
@@ -13,6 +18,8 @@ header, footer, div {
 
 #attackBtn{
     display: none;
+    background-color: red;
+    color: white;
 }
 
 .col-3{
@@ -38,8 +45,8 @@ img {
     display: inline-block;
 }
 
-.character:hover{
-    border:solid 10px midnightblue;
+#selectZone .character:hover{
+    background-color: gold;
 }
 
 
